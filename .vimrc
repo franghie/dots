@@ -37,7 +37,7 @@ call vundle#end()
 " Plugin 'git://git.wincent.com/command-t.git'
 "......................................
 filetype plugin indent on
-
+let g:tagbar_left = 1
 
 "-----------------------------------------------
 set completeopt=longest,menu
@@ -55,8 +55,8 @@ inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" :
 "\<PageUp>"
 " 跳转到定义处
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nnoremap <F6> :YcmForceCompileAndDiagnostics<CR>        "force recomile with
-syntastic
+nnoremap <F6> :YcmForceCompileAndDiagnostics<CR>        
+" force recomile withsyntastic
 " nnoremap <leader>lo :lopen<CR>        "open locationlist
 " nnoremap <leader>lc :lclose<CR>       "close locationlist
 inoremap <leader><leader> <C-x><C-o>
