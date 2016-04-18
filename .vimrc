@@ -4,59 +4,91 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle
-Plugin 'VundleVim/Vundle.vim'
-
+Plugin 'Vundlevim/Vundle.vim'
+"
 "my Plugin here:
 "
 " original repos on github
-Plugin 'kien/ctrlp.vim'
+Plugin 'rdnetto/YCM-Generator'
+Plugin 'majutsushi/tagbar'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'klen/python-mode'
-Plugin 'Valloric/ListToggle'
-Plugin 'SirVer/ultisnips'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'fholgado/minibufexpl.vim'
+Plugin 'scrooloose/syntastic'
 Plugin 'mileszs/ack.vim'
-Plugin 'majutsushi/tagbar'
-" Plugin 'Lokaltog/vim-powerline'
-Plugin 't9md/vim-quickhl'
+Plugin 'benmills/vimux'
+Plugin 'Yggdroot/indentLine'
+" the plugins above have been tried.
+Plugin 'SirVer/ultisnips'
 "..................................
 " vim-scripts repos
 Plugin 'vcscommand.vim'
 Plugin 'ShowPairs'
-Plugin 'SudoEdit.vim'
-Plugin 'EasyGrep'
-Plugin 'VOoM'
-Plugin 'VimIM'
 Plugin 'c.vim'
-call vundle#end()
 "..................................
 " non github repos
 " Plugin 'git://git.wincent.com/command-t.git'
 "......................................
+call vundle#end()
+"-------------------------BEGIN--------------------------------
 filetype plugin indent on
-let g:tagbar_left = 1
+set noswapfile
+set tabstop=4
+set shiftwidth=4
+set shell=bash
+set expandtab
 
-"-----------------------------------------------
-set completeopt=longest,menu
-"让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-"离开插入模式后自动关闭预览窗口
-inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
-"回车即选中当前项
+set number
+set tw=80
+set formatoptions+=t
+let mapleader=","
+------------------------------------------ctag-------------------------------------------------
+set tags+=~/.vim/tags
+"-------------------------------- Quickfix-----------------------------------------------------
+nnoremap <leader>qo :copen<CR>
+nnoremap <leader>qc :ccl<CR>
+nnoremap <leader>qw :cw<CR>
+nnoremap <leader>qn :cn<CR>
+nnoremap <leader>qnf :cnf<CR>
+"---------------------------------Ack --------------------------------------------------------
+nmap <leader>aa :Ack <cword><cr>
+
+"------------------------------------------tagbar---------------------------------------------
+let g:tagbar_left = 1
+let g:tagbar_width = 30
+nmap <C-t> :TagbarToggle<CR>
+"------------------------------------------ctrlp------------------------------------------
+let g:ctrlp_user_command = 'find %s -type f'  
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+function! CwordCtrlP()
+    let g:ctrlp_default_input = expand('<cword>')
+    CtrlP ~/volt
+    let g:ctrlp_default_input = ''
+endfunction
+command! CwordCtrlP call CwordCtrlP()
+nnoremap <leader>co :CwordCtrlP<CR>
+nnoremap <leader>cv :CtrlP ~/<CR>
+"------------------------------------------colorscheme------------------------------------------
+syntax enable
+set background=dark
+colorscheme solarized
+"-----------------------------------------------YouCompleteMe--------------------------------
+set completeopt=longest,menu    "让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif "离开插入模式后自动关闭预览窗口
+inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"    "回车即选中当前项
 "上下左右键的行为 会显示其他信息
 inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
 inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
-inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" :
-"\<PageDown>"
-inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" :
-"\<PageUp>"
+inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
+inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 " 跳转到定义处
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nnoremap <F6> :YcmForceCompileAndDiagnostics<CR>        
-" force recomile withsyntastic
+nnoremap <F6> :YcmForceCompileAndDiagnostics<CR>        "force recomile with syntastic
 " nnoremap <leader>lo :lopen<CR>        "open locationlist
 " nnoremap <leader>lc :lclose<CR>       "close locationlist
 inoremap <leader><leader> <C-x><C-o>
@@ -86,6 +118,6 @@ let g:ycm_filetype_blacklist = {
 "youcompleteme  默认tab  s-tab 和 ultisnips 冲突
 let g:ycm_key_list_select_completion = ['<Down>']
 let g:ycm_key_list_previous_completion = ['<Up>']
-" 修改对C函数的补全快捷键，默认是CTRL + space，修改为ALT +
-;
+" 修改对C函数的补全快捷键，默认是CTRL + space，修改为ALT + ;
 let g:ycm_key_invoke_completion = '<M-;>'
+"--------------------YCM END---------------------------
