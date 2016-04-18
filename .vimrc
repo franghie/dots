@@ -19,7 +19,6 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'mileszs/ack.vim'
-Plugin 'benmills/vimux'
 Plugin 'Yggdroot/indentLine'
 " the plugins above have been tried.
 Plugin 'SirVer/ultisnips'
