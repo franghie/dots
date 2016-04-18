@@ -33,6 +33,7 @@ Plugin 'c.vim'
 "......................................
 call vundle#end()
 "-------------------------BEGIN--------------------------------
+"-------------------------General------------------------------
 filetype plugin indent on
 set noswapfile
 set tabstop=4
@@ -44,22 +45,22 @@ set number
 set tw=80
 set formatoptions+=t
 let mapleader=","
-"------------------------------------------ctag-------------------------------------------------
+"--------------------------Ctag--------------------------------
 set tags+=~/.vim/tags
-"-------------------------------- Quickfix-----------------------------------------------------
+"--------------------------Quickfix----------------------------
 nnoremap <leader>qo :copen<CR>
 nnoremap <leader>qc :ccl<CR>
 nnoremap <leader>qw :cw<CR>
 nnoremap <leader>qn :cn<CR>
 nnoremap <leader>qnf :cnf<CR>
-"---------------------------------Ack --------------------------------------------------------
+"---------------------------Ack ------------------------------
 nmap <leader>aa :Ack <cword><cr>
 
-"------------------------------------------tagbar---------------------------------------------
+"---------------------------tagbar----------------------------
 let g:tagbar_left = 1
 let g:tagbar_width = 30
 nmap <C-t> :TagbarToggle<CR>
-"------------------------------------------ctrlp------------------------------------------
+"---------------------------ctrlp-----------------------------
 let g:ctrlp_user_command = 'find %s -type f'  
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -72,11 +73,11 @@ endfunction
 command! CwordCtrlP call CwordCtrlP()
 nnoremap <leader>co :CwordCtrlP<CR>
 nnoremap <leader>cv :CtrlP ~/<CR>
-"------------------------------------------colorscheme------------------------------------------
+"------------------------------colorscheme--------------------
 syntax enable
 set background=dark
 colorscheme solarized
-"-----------------------------------------------YouCompleteMe--------------------------------
+"------------------------------YouCompleteMe------------------
 set completeopt=longest,menu    "让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif "离开插入模式后自动关闭预览窗口
 inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"    "回车即选中当前项
