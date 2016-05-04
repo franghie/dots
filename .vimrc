@@ -13,14 +13,18 @@ Plugin 'majutsushi/tagbar'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'mileszs/ack.vim'
+Plugin 'benmills/vimux'
 Plugin 'Yggdroot/indentLine'
 " the plugins above have been tried.
 Plugin 'SirVer/ultisnips'
+Plugin 'mbrochh/vim-as-a-python-ide'
 "..................................
 " vim-scripts repos
+Plugin 'bash-support.vim'
 Plugin 'vcscommand.vim'
 Plugin 'ShowPairs'
 Plugin 'c.vim'
@@ -30,7 +34,6 @@ Plugin 'c.vim'
 "......................................
 call vundle#end()
 "-------------------------BEGIN--------------------------------
-"-------------------------General------------------------------
 filetype plugin indent on
 set noswapfile
 set tabstop=4
@@ -42,22 +45,22 @@ set number
 set tw=80
 set formatoptions+=t
 let mapleader=","
-"--------------------------Ctag--------------------------------
-set tags+=~/.vim/tags
-"--------------------------Quickfix----------------------------
+
+set tags+=~/.vim/tags/volt
+"Quickfix
 nnoremap <leader>fo :copen<CR>
 nnoremap <leader>fc :ccl<CR>
 nnoremap <leader>fw :cw<CR>
 nnoremap <leader>fn :cn<CR>
 nnoremap <leader>fnf :cnf<CR>
-"---------------------------Ack ------------------------------
+"Ack
 nmap <leader>vv :Ack <cword><cr>
 
-"---------------------------tagbar----------------------------
+"tagbar
 let g:tagbar_left = 1
 let g:tagbar_width = 30
 nmap <C-t> :TagbarToggle<CR>
-"---------------------------ctrlp-----------------------------
+"ctrlp
 let g:ctrlp_user_command = 'find %s -type f'  
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -69,9 +72,9 @@ function! CwordCtrlP()
 endfunction
 command! CwordCtrlP call CwordCtrlP()
 nnoremap <leader>co :CwordCtrlP<CR>
-nnoremap <leader>cv :CtrlP ~/<CR>
-"------------------------------colorscheme--------------------
+nnoremap <leader>cv :CtrlP ~/volt<CR>
+"colorscheme
 syntax enable
 set background=dark
 colorscheme solarized
-"--------------------------------------END--------------------
+"END
