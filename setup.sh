@@ -36,6 +36,20 @@ if [ ! -d "$DVIM" ]; then
 fi
 
 echo "************************************************"
+echo "*******   Setup vimrc"
+echo "************************************************"
+vimrcd=$HOME/.vimrc
+vimrcs=$DIR/.vimrc
+if [ -f "$vimrcd" ]; then
+    CMD="mv $vimrcd $vimrcd-${date}"
+    echo "$CMD"
+    $CMD
+fi
+
+CMD="ln -fs ${vimrcs} ${vimrcd}"
+echo $CMD
+$CMD
+echo "************************************************"
 echo "*******   Setup git shell prompt"
 echo "************************************************"
 gitpd=$HOME/.git-prompt.sh
