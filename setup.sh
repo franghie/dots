@@ -25,11 +25,12 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}"  )" && pwd  )"
 echo "************************************************"
 echo "******   Setup Vim plugin Vundle"
 echo "************************************************"
-if [ ! -d "~/.vim/bundle/Vundle.vim" ]; then
-    CMD="mkdir -p ~/.vim/bundle/Vundle.vim"
+DVIM=$HOME/.vim/bundle/Vundle.vim
+if [ ! -d "$DVIM" ]; then
+    CMD="mkdir -p $DVIM"
     echo $CMD
     $CMD
-    CMD="git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim"
+    CMD="git clone https://github.com/VundleVim/Vundle.vim.git $DVIM"
     echo $CMD
     $CMD
 fi
@@ -37,13 +38,15 @@ fi
 echo "************************************************"
 echo "*******   Setup git shell prompt"
 echo "************************************************"
-if [ -f "~/.git-prompt.sh" ]; then
-    CMD="mv ~/.git-prompt.sh ~/.git-prompt.sh-${date}"
+gitpd=$HOME/.git-prompt.sh
+gitps=$DIR/.git-prompt.sh
+if [ -f "$gitpd" ]; then
+    CMD="mv $gitpd $gitpd-${date}"
     echo "$CMD"
     $CMD
 fi
 
-CMD="ln -fs ~/.git-prompt.sh ${DIR}/.git-prompt.sh"
+CMD="ln -fs ${gitps} ${gitpd}"
 echo $CMD
 $CMD
 
