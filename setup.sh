@@ -44,8 +44,8 @@ vimrcd=$HOME/.vimrc
 vimrcs=$DIR/.vimrc
 if [ -f "$vimrcd" ]; then
     CMD="mv $vimrcd $vimrcd-${date}"
-    echo "$CMD"
-    $CMD
+    #echo "$CMD"
+    #$CMD
 fi
 
 CMD="ln -fs ${vimrcs} ${vimrcd}"
@@ -58,8 +58,8 @@ gitpd=$HOME/.git-prompt.sh
 gitps=$DIR/.git-prompt.sh
 if [ -f "$gitpd" ]; then
     CMD="mv $gitpd $gitpd-${date}"
-    echo "$CMD"
-    $CMD
+    #echo "$CMD"
+    #$CMD
 fi
 
 CMD="ln -fs ${gitps} ${gitpd}"
