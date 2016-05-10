@@ -19,6 +19,8 @@
 
 set -o nounset                              # Treat unset variables as an error
 
+git submodule update --recursive
+
 date=`date +"%Y-%m-%d:%H:%M:%S"`
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}"  )" && pwd  )"
 
