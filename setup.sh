@@ -25,12 +25,12 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}"  )" && pwd  )"
 echo "************************************************"
 echo "******   Setup Vim plugin Vundle"
 echo "************************************************"
-bundle=$HOME/.vim/bundle
+bundle=$HOME/.vim/bundle/Vundle.vim
 if [ ! -d "$bundle" ]; then
     CMD="mkdir -p $bundle"
     echo $CMD
     $CMD
-    CMD="ln -fs $bundle/Vundle.vim $DIR/Vundle.vim"
+    CMD="git clone https://github.com/VundleVim/Vundle.vim.git $bundle"
     echo $CMD
     $CMD
 fi
