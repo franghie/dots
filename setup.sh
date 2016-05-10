@@ -71,7 +71,7 @@ echo "source ~/.git-prompt.sh" >> ~/.bashrc
 echo "************************************************"
 echo "*******   Setup PS1 "
 echo "************************************************"
-PS="PS1=\"\[\$GREEN\]\t\[\$RED\]-\[\$GREEN\]\h\[\$RED\]-\[\$BLUE\]\u\[\$YELLOW\]\[\$YELLOW\]\w\[\033[m\]\[\$MAGENTA\]\$(__git_ps1)\[\$WHITE\]\\\$ \""
+PS="PS1='[\u@\h \W\$(__git_ps1 \" (%s)\")]\\\$ '"
 echo $PS
 echo "${PS}" >> ~/.bashrc
 
@@ -80,8 +80,7 @@ echo "************************************************"
 echo "*******   Setup git-flow"
 echo "************************************************"
 installer=${DIR}/gitflow/contrib/gitflow-installer.sh
-chmod +x $installer
-INSTALL_PREFIX=~/bin $installer
+INSTALL_PREFIX=~/bin /bin/bash $installer
 
 echo "************************************************"
 echo "*******   Setup utilities"
