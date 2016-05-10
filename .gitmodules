@@ -1,0 +1,9 @@
+[submodule "bash-git-prompt"]
+	path = bash-git-prompt
+	url = https://github.com/magicmonty/bash-git-prompt.git
+[submodule "gitflow"]
+	path = gitflow
+	url = https://github.com/franghie/gitflow.git
+[submodule "Vundle.vim"]
+	path = Vundle.vim
+	url = https://github.com/VundleVim/Vundle.vim.git
