@@ -4,6 +4,3 @@
 [submodule "gitflow"]
 	path = gitflow
 	url = https://github.com/franghie/gitflow.git
-[submodule "Vundle.vim"]
-	path = Vundle.vim
-	url = https://github.com/VundleVim/Vundle.vim.git
