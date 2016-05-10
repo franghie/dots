@@ -25,12 +25,12 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}"  )" && pwd  )"
 echo "************************************************"
 echo "******   Setup Vim plugin Vundle"
 echo "************************************************"
-DVIM=$HOME/.vim/bundle/Vundle.vim
-if [ ! -d "$DVIM" ]; then
-    CMD="mkdir -p $DVIM"
+bundle=$HOME/.vim/bundle/Vundle.vim
+if [ ! -d "$bundle" ]; then
+    CMD="mkdir -p $bundle"
     echo $CMD
     $CMD
-    CMD="git clone https://github.com/VundleVim/Vundle.vim.git $DVIM"
+    CMD="git clone https://github.com/VundleVim/Vundle.vim.git $bundle"
     echo $CMD
     $CMD
 fi
@@ -77,7 +77,9 @@ echo "${PS}" >> ~/.bashrc
 echo "************************************************"
 echo "*******   Setup git-flow"
 echo "************************************************"
-INSTALL_PREFIX=~/bin ${DIR}/gitflow-installer.sh
+installer=${DIR}/gitflow/contrib/gitflow-installer.sh
+chmod +x $installer
+INSTALL_PREFIX=~/bin $installer
 
 echo "************************************************"
 echo "*******   Setup utilities"
