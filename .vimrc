@@ -15,7 +15,7 @@ Plugin 'Vundlevim/Vundle.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'altercation/vim-colors-solarized'
+"Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'scrooloose/syntastic'
@@ -49,7 +49,23 @@ set expandtab
 set number
 set tw=80
 set formatoptions+=t
+set hlsearch
 let mapleader=","
+
+function! CwordTag()
+    let g:line_diff_cword = expand('<cword>')
+    windo execute "call CwordLine()"
+endfunction
+function! CwordLine()
+    try
+        " search current word under curosr
+        execute '/^'.g:line_diff_cword.','    
+    catch
+    endtry
+    " add searched line into quickfix
+    cexpr! getline(".")
+endfunction
+nnoremap <leader>ld :call CwordTag()<CR>
 
 " *********************************************************
 " Quickfix
@@ -88,9 +104,9 @@ nnoremap <leader>cv :CtrlP ~/volt<CR>
 " *********************************************************
 " colorscheme
 " *********************************************************
-syntax enable
-set background=dark
-colorscheme solarized
+" syntax enable
+" set background=dark
+" colorscheme solarized
 " *********************************************************
 "  bash-support
 " *********************************************************
