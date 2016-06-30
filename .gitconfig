@@ -1,0 +1,32 @@
+[user]
+    name = samuel
+    email = zhifan.nie@gmail.com
+[core]
+    editor = vim
+    pager = less -SF
+    excludesfile = ~/.gitexcludes
+[merge]
+    tool = vimdiff
+    keepBackup = false
+[alias]
+    s = status
+    a = add
+    b = branch
+    ci = commit
+    co = checkout
+    d = diff
+    dc = diff --cached
+    f = fetch
+    l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    lm = log --first-parent --pretty=format:'%Cred%h %Creset%s %Cgreen(%cr) %C(bold blue)<%aN>%Creset'
+    m = merge
+    mt = mergetool
+    p = pull
+    s = status -s
+    ss = stash save -u
+    sp = stash pop
+    sl = stash list
+[color]
+    ui = true
+[push]
+    default = simple
