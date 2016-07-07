@@ -1,0 +1,40 @@
+Tools
+    bash/awk/sed/grep
+    python
+    vim
+    git/svn
+    Mysql/PostgreSQL
+    CMake
+
+C++ libraries
+    zeromq
+    libpaxos
+    glog
+    gtest
+    LBM
+
+C++ framework
+    Build/Test/Deploy/Monitor
+    message bus
+    disruptor pattern
+    event loop
+    timer subsystem 
+    log libariry
+    configuration library
+    DateTime library
+
+Programming skills
+    c++ idioms
+    design patterns
+    patterns of enterprise application architecture
+    erlang paper: Making reliable distributed systems in the presence of
+software error  
+    disruptor paper: time, clock and ordering
+    disruptor paper: futex & monitor synchronization
+    distributed system paper: paxos made easy
+
+System Design
+    network stack
+    hardware network stack, VHDL
+    litecoin VHDL
+    CFFEX Trading System: Feed handler, OMS, Trading Engine
